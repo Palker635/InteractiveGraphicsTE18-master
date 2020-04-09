@@ -52,8 +52,8 @@ public class Graphics extends Canvas implements Runnable {
         this.addKeyListener(new MyKeyListener());
         this.requestFocus();
 
-        b = new Ball(200,100);
-        paddle = new Paddle(0,0,0xFFFF0000);
+        b = new Ball(50,50);
+        paddle = new Paddle(80,55,0xFFFF0000);
     }
 
     private void draw() {
@@ -131,12 +131,12 @@ public class Graphics extends Canvas implements Runnable {
 
         @Override
         public void keyPressed(KeyEvent keyEvent) {
-            paddle.keyPressed(keyEvent);
+            Ball.keyPressed(keyEvent);
         }
 
         @Override
         public void keyReleased(KeyEvent keyEvent) {
-            paddle.keyReleased(keyEvent);
+            Ball.keyReleased(keyEvent);
         }
     }
 

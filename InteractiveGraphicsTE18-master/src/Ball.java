@@ -1,9 +1,11 @@
 import java.awt.*;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Ball {
-    private int xDirection, yDirection;
+    private static int xDirection;
+    private static int yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
     private int height = 10;
@@ -26,24 +28,14 @@ public class Ball {
 
         boundingBox = new Rectangle(x, y, width, height);
 
-        Random r = new Random();
-        int rDir = r.nextInt(1);
-        if(rDir == 0) {
-            rDir--;
-        }
-        setXDirection(rDir);
-        int yrDir = r.nextInt(1);
-        if(yrDir == 0) {
-            yrDir--;
-        }
-        setYDirection(yrDir);
+
     }
 
-    public void setXDirection(int xdir){
+    public static void setXDirection(int xdir){
         xDirection = xdir;
     }
 
-    public void setYDirection(int ydir){
+    public static void setYDirection(int ydir){
         yDirection = ydir;
     }
 
@@ -66,29 +58,66 @@ public class Ball {
     public void collision(Rectangle r){
         if(boundingBox.intersects(r)) {
             if (getXDirection() > 0 && Math.abs(r.x - (boundingBox.x + boundingBox.width)) <= getXDirection()) {
-                setXDirection(-1);
+                setXDirection(0);
+                setYDirection(0);
             } else if (getXDirection() < 0 && Math.abs(r.x + r.width - boundingBox.x) <= -getXDirection()) {
-                setXDirection(+1);
+                setXDirection(0);
+                setYDirection(0);
             } else if (getYDirection() > 0 && Math.abs(r.y - (boundingBox.y + boundingBox.height)) <= getYDirection()) {
-                setYDirection(-1);
+                setXDirection(0);
+                setYDirection(0);
             } else if (getYDirection() < 0 && Math.abs(r.y + r.height - boundingBox.y) <= -getYDirection()) {
-                setYDirection(1);
+                setXDirection(0);
+                setYDirection(0);
             }
         }
     }
+
+
+    public static void keyPressed(KeyEvent e){
+        if(e.getKeyCode() == e.VK_LEFT){
+            setXDirection(-2);
+        }
+        if(e.getKeyCode() == e.VK_RIGHT){
+            setXDirection(2);
+        }
+        if(e.getKeyCode() == e.VK_UP){
+            setYDirection(-2);
+        }
+        if(e.getKeyCode() == e.VK_DOWN){
+            setYDirection(2);
+        }
+    }
+
+    public static void keyReleased(KeyEvent e){
+        if(e.getKeyCode() == e.VK_LEFT){
+            setXDirection(0);
+        }
+        if(e.getKeyCode() == e.VK_RIGHT){
+            setXDirection(0);
+        }
+        if(e.getKeyCode() == e.VK_UP){
+            setYDirection(0);
+        }
+        if(e.getKeyCode() == e.VK_DOWN){
+            setYDirection(0);
+        }
+
+    }
+
 
     public void move() {
         boundingBox.x += xDirection;
         boundingBox.y += yDirection;
         //Bounce the ball when edge is detected
         if (boundingBox.x <= 0) {
-            setXDirection(+1);
+            setXDirection(0);
         }
         if (boundingBox.x >= 385) {
-            setXDirection(-1);
+            setXDirection(0);
         }
-        if (boundingBox.y <= 0) setYDirection(+1);
-        if (boundingBox.y >= 285) setYDirection(-1);
+        if (boundingBox.y <= 0) setYDirection(0);
+        if (boundingBox.y >= 285) setYDirection(0);
     }
 
     public void update(Rectangle r) {

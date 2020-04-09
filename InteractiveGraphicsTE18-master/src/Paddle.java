@@ -7,8 +7,8 @@ public class Paddle {
     private int yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
-    private int width = 60;
-    private int height = 60;
+    private int width = 240;
+    private int height = 180;
 
     public Paddle(int x, int y, int col){
         boundingBox = new Rectangle(x, y, width, height);
@@ -18,7 +18,7 @@ public class Paddle {
         }
     }
 
-    public void keyPressed(KeyEvent e){
+   /* public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_LEFT){
             setXDirection(-1);
         }
@@ -48,6 +48,8 @@ public class Paddle {
         }
 
     }
+
+    */
 
     public void setXDirection(int xdir) {
         xDirection = xdir;
@@ -84,5 +86,8 @@ public class Paddle {
                 Screen[(boundingBox.y+i)*screenWidth + boundingBox.x+j] = pixels[i*width+j];
             }
         }
+    }
+
+    public void keyPressed(KeyEvent keyEvent) {
     }
 }
