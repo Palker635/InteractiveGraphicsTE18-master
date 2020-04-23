@@ -29,6 +29,7 @@ public class Graphics extends Canvas implements Runnable {
     private int fps = 60;
     private int ups = 60;
 
+    private Sprite s;
     private Ball b;
     private Paddle paddle;
 
@@ -54,6 +55,8 @@ public class Graphics extends Canvas implements Runnable {
 
         b = new Ball(50,50);
         paddle = new Paddle(80,55,0xFFFF0000);
+
+        s = new Sprite("FinishLine.png");
     }
 
     private void draw() {
