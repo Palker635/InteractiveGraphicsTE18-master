@@ -56,7 +56,7 @@ public class Graphics extends Canvas implements Runnable {
         b = new Ball(50,50);
         paddle = new Paddle(80,55,0xFFFF0000);
 
-        s = new Sprite("FinishLine.png");
+       s = new Sprite("FinishLine.png");
     }
 
     private void draw() {
@@ -65,6 +65,7 @@ public class Graphics extends Canvas implements Runnable {
         }
         b.draw(pixels,width);
         paddle.draw(pixels,width);
+        s.draw(pixels,width);
 
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
