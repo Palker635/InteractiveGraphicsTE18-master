@@ -35,6 +35,7 @@ public class Sprite {
         }
     }
 
+
     public Sprite(String path) {
         BufferedImage image = null;
         try {
@@ -49,6 +50,7 @@ public class Sprite {
         this.width = image.getWidth();
         this.height = image.getHeight();
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+        boundingBox = new Rectangle(width, height);
     }
 
     public int[] getPixels() {
