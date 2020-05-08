@@ -17,19 +17,19 @@ public class Sprite {
     private int[] pixels;
     private Rectangle boundingBox;
 
-    public Sprite(int w, int h) {
-        this.width = w;
-        this.height = h;
-        pixels = new int[w * h];
+    public Sprite(int x, int y) {
+        this.width = x;
+        this.height = y;
+        pixels = new int[x * y];
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0xFFFFFF;
         }
     }
 
-    public Sprite(int w, int h, int col) {
-        this.width = w;
-        this.height = h;
-        pixels = new int[w * h];
+    public Sprite(int x, int y, int col) {
+        this.width = x;
+        this.height = y;
+        pixels = new int[x * y];
         for (int i = 0; i < pixels.length; i++) {
             pixels[i] = col;
         }

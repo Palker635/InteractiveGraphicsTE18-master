@@ -37,7 +37,7 @@ public class Graphics extends Canvas implements Runnable {
         this.width = w;
         this.height = h;
         this.scale = scale;
-        image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
 
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
         Dimension size = new Dimension(scale*width, scale*height);
@@ -54,7 +54,8 @@ public class Graphics extends Canvas implements Runnable {
         this.requestFocus();
 
         b = new Ball(50,50);
-        paddle = new Paddle(80,55,0xFFFF0000);
+        paddle = new Paddle(80,55, 0x08000);
+       s = new Sprite(100, 100 );
 
        s = new Sprite("FinishLine.png");
     }
