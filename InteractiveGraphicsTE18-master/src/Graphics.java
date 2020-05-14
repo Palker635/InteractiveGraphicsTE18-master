@@ -54,10 +54,10 @@ public class Graphics extends Canvas implements Runnable {
         this.requestFocus();
 
         b = new Ball(50,50);
-        paddle = new Paddle(80,55, 0x08000);
-       s = new Sprite(100, 100 );
+        paddle = new Paddle(75,55, 0x08000);
+        s = new Sprite("FinishLine.png", 0, 135);
 
-       s = new Sprite("FinishLine.png");
+     //  s = new Sprite("FinishLine.png");
     }
 
     private void draw() {

@@ -26,17 +26,7 @@ public class Sprite {
         }
     }
 
-    public Sprite(int x, int y, int col) {
-        this.width = x;
-        this.height = y;
-        pixels = new int[x * y];
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = col;
-        }
-    }
-
-
-    public Sprite(String path) {
+    public Sprite(String path, int x, int y) {
         BufferedImage image = null;
         try {
             BufferedImage rawImage = ImageIO.read(new File(path));
@@ -50,9 +40,9 @@ public class Sprite {
         this.width = image.getWidth();
         this.height = image.getHeight();
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-        boundingBox = new Rectangle(width, height);
+        boundingBox = new Rectangle(x, y, width, height);
     }
-
+/*
     public int[] getPixels() {
         return pixels;
     }
@@ -70,7 +60,7 @@ public class Sprite {
             pixels[i] = color;
         }
     }
-
+*/
 
 
     public void draw(int[] Screen, int screenWidth){
