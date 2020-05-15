@@ -7,24 +7,16 @@ import java.io.IOException;
 
 /**
  * This is a class
- * Created 2020-03-26
+ * Created 2020-03-25
  *
  * @author Magnus Silverdal
+ * edited by Isac Hansson
  */
 public class Sprite {
     private int width;
     private int height;
     private int[] pixels;
     private Rectangle boundingBox;
-
-    public Sprite(int x, int y) {
-        this.width = x;
-        this.height = y;
-        pixels = new int[x * y];
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = 0xFFFFFF;
-        }
-    }
 
     public Sprite(String path, int x, int y) {
         BufferedImage image = null;
@@ -42,26 +34,6 @@ public class Sprite {
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
         boundingBox = new Rectangle(x, y, width, height);
     }
-/*
-    public int[] getPixels() {
-        return pixels;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setColor(int color) {
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = color;
-        }
-    }
-*/
-
 
     public void draw(int[] Screen, int screenWidth){
         for (int i = 0 ; i < height ; i++) {
@@ -70,6 +42,4 @@ public class Sprite {
             }
         }
     }
-
 }
-

@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -13,6 +11,7 @@ import java.awt.image.DataBufferInt;
  * Created 2020-03-25
  *
  * @author Magnus Silverdal
+ * edited by Isac Hansson
  */
 public class Graphics extends Canvas implements Runnable {
     private String title = "Graphics";
@@ -56,8 +55,6 @@ public class Graphics extends Canvas implements Runnable {
         b = new Ball(50,50);
         paddle = new Paddle(75,55, 0x08000);
         s = new Sprite("FinishLine.png", 0, 135);
-
-     //  s = new Sprite("FinishLine.png");
     }
 
     private void draw() {
@@ -83,7 +80,7 @@ public class Graphics extends Canvas implements Runnable {
     private void update() {
 
         b.update(paddle.getBoundingBox());
-        paddle.update();
+
     }
 
     public synchronized void start() {

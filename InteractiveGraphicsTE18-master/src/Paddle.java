@@ -1,10 +1,12 @@
 import java.awt.*;
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-
+/**
+ * This is a class
+ * Created 2020-03-25
+ *
+ * @author Magnus Silverdal
+ * edited by Isac Hansson
+ */
 public class Paddle {
-    private int xDirection;
-    private int yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
     private int width = 250;
@@ -18,67 +20,10 @@ public class Paddle {
         }
     }
 
-   /* public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(1);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(1);
-        }
-    }
-
-    public void keyReleased(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(0);
-        }
-
-    }
-
-    */
-
-    public void setXDirection(int xdir) {
-        xDirection = xdir;
-    }
-
-    public void setYDirection(int ydir){
-        yDirection = ydir;
-    }
-
     public Rectangle getBoundingBox() {
         return boundingBox;
     }
 
-    public void update(){
-        boundingBox.x += xDirection;
-        if(boundingBox.x <= 0) {
-            boundingBox.x = 0;
-        }
-        if(boundingBox.x >= 380) {
-            boundingBox.x = 380;
-        }
-        boundingBox.y += yDirection;
-        if(boundingBox.y <= 0) {
-            boundingBox.y = 0;
-        }
-        if(boundingBox.y >= 280) {
-            boundingBox.y = 280;
-        }
-    }
 
     public void draw(int[] Screen, int screenWidth){
         for (int i = 0 ; i < height ; i++) {
@@ -86,8 +31,5 @@ public class Paddle {
                 Screen[(boundingBox.y+i)*screenWidth + boundingBox.x+j] = pixels[i*width+j];
             }
         }
-    }
-
-    public void keyPressed(KeyEvent keyEvent) {
     }
 }

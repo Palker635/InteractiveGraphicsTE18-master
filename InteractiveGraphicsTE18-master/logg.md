@@ -1,5 +1,3 @@
-
-
 Loggbok -->
 
 Lektion 1: Jag har klonat koden och försökt börja ändra på boundryboxen och collisions. 
@@ -13,3 +11,5 @@ Lektion 4: Jag har försökt lösa problemet med mållinjen, jag hittade felet, 
 Lektion 5: Man kan nu se mållinjen, men den är helt vit och den blinkar .. så det får jag försöka fixa under nästa lektion.
 
 Lektion 6: Jag har lyckats fixa positioneringen av mållinjen och har balanserat hastigheten så att den är rimlig. 
+
+Lektion 7: Jag har tagit bort onödig kod och förbättrat strukturen lite.

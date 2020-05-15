@@ -1,7 +1,13 @@
 import java.awt.*;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.util.Random;
+
+/**
+ * This is a class
+ * Created 2020-03-25
+ *
+ * @author Magnus Silverdal
+ * edited by Isac Hansson
+ */
 
 public class Ball {
     private static int xDirection;
@@ -13,32 +19,18 @@ public class Ball {
 
     public Ball(int x, int y){
         pixels = new int[width*height];
-        /*for(int j = 0 ; j < height ; j++ ) {
-            for (int i = 0 ; i < width ; i++) {
-                if ((i-width/2)*(i-width/2) + (j-height/2)*(j-height/2) < width*width/4) {
-                    pixels[i] = 0xFFFFFFFF;
-                } else {
-                    pixels[i] = 0x00000000;
-                }
-            }
-        }*/
-
         for (int i = 0 ; i < pixels.length ; i++)
             pixels[i] = 0xFFFFFFFF;
 
         boundingBox = new Rectangle(x, y, width, height);
-
-
     }
 
     public static void setXDirection(int xdir){
         xDirection = xdir;
     }
-
     public static void setYDirection(int ydir){
         yDirection = ydir;
     }
-
     public int getXDirection() {
         return xDirection;
     }
@@ -73,7 +65,6 @@ public class Ball {
         }
     }
 
-
     public static void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_LEFT){
             setXDirection(-3);
@@ -102,9 +93,7 @@ public class Ball {
         if(e.getKeyCode() == e.VK_DOWN){
             setYDirection(0);
         }
-
     }
-
 
     public void move() {
         boundingBox.x += xDirection;
